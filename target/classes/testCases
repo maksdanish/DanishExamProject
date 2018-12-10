@@ -1,0 +1,68 @@
+ https://www.imdb.com
+
+test case #1
+Summary: Sign in to account
+
+Steps to reproduce:
+1. Open https://www.imdb.com
+2. Click "Other Sign in options" button. ( opening new page)
+3. Click "Sign in with IMDb" button.
+4. Input "maksdanish@gmail.com" in field "email".
+5. Input "Odyssey100" in field "password".
+6. Click "Sign In" button.
+
+Expected result:
+User "maksdanish@gmail.com" should be login to private account
+
+test case#2
+Summary: Edit Full name in user profile
+
+Pre-condition:
+1. Open https://www.imdb.com
+2. Click "Other Sign in options" button. ( opening new page)
+3. Click "Sign in with IMDb" button.
+4. Input "maksdanish@gmail.com" in field "email".
+5. Input "Odyssey100" in field "password".
+6. Click "Sign In" button.
+
+Steps to reptoduce:
+1.Click popup menu with nickname.
+2.Click "Account Settings" button
+3.Click "Login and security" button.
+4.Click  "Edit" button on Name field.
+5 Erase data on Full Name field.
+6.Input name ,for example: "DanishTest".
+7.Click "Submit" button.
+
+Post-condition:
+Clear test result and change name back to "maksdanish"
+
+Expected result:
+Full Name should be changed.
+We should be received msg "You have successfully updated your Name!"
+
+test case#3
+Summary: Add a new Watchlist
+
+Pre-condition:
+1. Open https://www.imdb.com
+2. Click "Other Sign in options" button. ( opening new page)
+3. Click "Sign in with IMDb" button.
+4. Input "maksdanish@gmail.com" in field "email".
+5. Input "Odyssey100" in field "password".
+6. Click "Sign In" button.
+
+Steps to reptoduce:
+1. Click Watchlist button on main page.
+2. Click "Create a new list" button.
+3. Input "myVideo" value in "List Title" field.
+4. Input "testDesc" value in "List Description" field.
+5. Select "peple" in pulldown menu in "type of List".
+6. Click "Create" button.
+7. Click "Done"button.
+
+
+
+
+
+
