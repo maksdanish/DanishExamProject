@@ -13,7 +13,6 @@ abstract public class ParentPage {
     public ActionsWithOurElements actionsWithOurElements;
 
 
-
     public ParentPage(WebDriver webDriver) {
 
         this.webDriver = webDriver;
@@ -21,7 +20,4 @@ abstract public class ParentPage {
         actionsWithOurElements = new ActionsWithOurElements(webDriver);
 
     }
-
-
-
 }

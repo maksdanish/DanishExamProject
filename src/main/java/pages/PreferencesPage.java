@@ -33,6 +33,7 @@ public class PreferencesPage extends ParentPage {
 
     @FindBy(xpath = "//input[@value='Save']")
     WebElement saveRatingButton;
+    private String location;
 
 
     public PreferencesPage(WebDriver webDriver) {
@@ -77,8 +78,8 @@ public class PreferencesPage extends ParentPage {
     public boolean isMsgSucssesfullyPresent(){
         return actionsWithOurElements.isElementDisplayed(By.xpath("//h2[contains(.,'Your review profile has been updated, along with any existing reviews.')]"));
     }
-    public boolean isTextOnPagePresent(){
-        return actionsWithOurElements.isTextDisplayed(By.linkText("Ukraine"));
+    public boolean isTextOnPagePresent(String TitleCountry){
+        return actionsWithOurElements.isElementDisplayed(By.xpath(".//*[text()='" + TitleCountry + "']"));
     }
 
     public void cleanPreviouseUserData(String TitleCountry, String language, String quantity ) {

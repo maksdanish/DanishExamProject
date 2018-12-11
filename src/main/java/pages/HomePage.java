@@ -22,14 +22,18 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = "(//a[contains(.,'Watchlist')])[1]")
     WebElement watchListButton;
 
+    @FindBy(xpath = "//input[contains(@id,'navbar-query')]")
+    WebElement searchBar;
+
+    @FindBy(xpath = "//button[@id='navbar-submit-button']")
+    WebElement lookupButton;
+
 
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
-//    public boolean isSignInButtonNotPresent(){
-//        return actionsWithOurElements.isElementDisplayed(avatar);
-//    }
+
     public boolean isLoginSuccessfull () {
         return actionsWithOurElements.isElementDisplayed(nickName);
     }
@@ -44,12 +48,19 @@ public class HomePage extends ParentPage {
         actionsWithOurElements.clickOnElement(ourList);
     }
 
-
     public void clickYourAccount() {
         actionsWithOurElements.clickOnElement(yourAccountButton);
     }
 
     public void clickWatchList() {
         actionsWithOurElements.clickOnElement(watchListButton);
+    }
+
+    public void searchMovie(String movie) {
+        actionsWithOurElements.enterTextInToElement(searchBar, movie);
+    }
+
+    public void clickLookUp() {
+        actionsWithOurElements.clickOnElement(lookupButton);
     }
 }

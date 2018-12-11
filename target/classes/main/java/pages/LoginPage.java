@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends ParentPage {
 
 
+
+
     @FindBy(xpath = "//input[@id='ap_email']")
     WebElement inputLogin;
 
@@ -45,7 +47,6 @@ public class LoginPage extends ParentPage {
 
     }
 
-    
     public void openSignInWithIMDb() {
         actionsWithOurElements.clickOnElement(signInWithIMDb);
     }
@@ -53,6 +54,7 @@ public class LoginPage extends ParentPage {
     public void enterLogin(String login) {
         actionsWithOurElements.enterTextInToElement(inputLogin, login);
     }
+
 
     public void enterPassword(String password) {
         actionsWithOurElements.enterTextInToElement(inputPassword, password);
@@ -62,6 +64,11 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.clickOnElement(submit);
     }
 
+    /**
+     *
+     * @param login
+     * @param password
+     */
     public void loginToIMDb (String login, String password){
         openLoginPage();
         openSubLoginPage();
@@ -70,59 +77,13 @@ public class LoginPage extends ParentPage {
         enterPassword(password);
         clickSubmitButton();
 
-
-
     }
 
-
-//    public void enterLogin(String login) {
-//        actionsWithOurElements.enterTextInToElement(inputLogin, login);
-//    }
-//
-//    public void enterPassword(String password) {
-//        actionsWithOurElements.enterTextInToElement(inputPassword, password);
-//    }
-//
-//
-//    public void clickOnElement(WebElement element) {
-//        try {
-//            element.click();
-//            logger.info("Element was clicked");
-//
-//        }catch (Exception e){
-//            logger.error("Cannot work with element" + e);
-//            Assert.fail("Cannot work with element" + e);
-//
-//        }
-//
-//    }
-//    public void loginInToApp(String login, String password){
-//        openLoginPage();
-//        enterLogin(login);
-//        enterPassword(password);
-//        clickSubmitButton();
-//
-//    }
-//
-//   public void clickSubmitButton() {
-//       actionsWithOurElements.clickOnElement(submit);
-//    }
-
-
-    //    public boolean isButtonVhodDisplayed(){
-//        return actionsWithOurElements.isElementDisplayed(submit);
-//    }
-//    public void validLoginInToApp(){
-//        loginInToApp("Student", "909090");
-//        HomePage homePage = new HomePage(webDriver);
-//        homePage.isAvatarDisplayed();
-//
-//
-//    }
-
-
-
+    // cхлопнутый метод login на страницу IMDb
+    public void logIn(){
+        loginToIMDb("maksdanish@gmail.com", "Qwerty12345");
+    }
 
 }
-//end
+
 

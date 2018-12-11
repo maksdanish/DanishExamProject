@@ -7,19 +7,9 @@ import parentTest.ParentTest;
 
 public class Login extends ParentTest {
 
-
-    @Test
+    @Test // Логин на страницу под юзером , с правильным логином и паролем
     public void validLogin(){
-        loginPage.openLoginPage();
-        loginPage.openSubLoginPage();
-        loginPage.openSignInWithIMDb();
-        loginPage.enterLogin("maksdanish@gmail.com");
-        loginPage.enterPassword("Odyssey100");
-        loginPage.clickSubmitButton();
-        //homePage.isLoginSuccessfull();
+        loginPage.logIn();
         checkExpectedResult("Login Successfull", homePage.isLoginSuccessfull());
-
     }
-
-
 }

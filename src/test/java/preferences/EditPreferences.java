@@ -5,9 +5,9 @@ import parentTest.ParentTest;
 
 public class EditPreferences extends ParentTest {
 
-    @Test
+    @Test // Тест по редактированию персональных настроек юзера : язык, страна, колличество эпизодов на странице.
     public void editMyPreferences(){
-        loginPage.loginToIMDb("maksdanish@gmail.com", "Odyssey100");
+        loginPage.logIn();
         homePage.clickOnNickName();
         homePage.clickYourAccount();
         preferencesPage.clickContentSetting();
@@ -16,8 +16,7 @@ public class EditPreferences extends ParentTest {
         preferencesPage.selectDisplayLanguage("English");
         preferencesPage.selectEpisodesToDisplayInDD("All");
         preferencesPage.clickSubmitButton();
-        checkExpectedResult("my  Preference info was changed", preferencesPage.isTextOnPagePresent());
-
+        checkExpectedResult("My  Preference info was changed", preferencesPage.isTextOnPagePresent("Ukraine"));
     }
 
 }
