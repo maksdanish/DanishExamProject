@@ -5,20 +5,21 @@ import org.junit.Test;
 import parentTest.ParentTest;
 
 public class EditProfile extends ParentTest {
-    @Test
+
+    @Test // Тест по добавлению биографии,о юзере.
     public void editMyProfileIMDb(){
-        loginPage.loginToIMDb("maksdanish@gmail.com", "Odyssey100");
+        loginPage.logIn();
         homePage.clickOnNickName();
         homePage.clickYourAccount();
         profilePage.clickEditProfile();
         profilePage.addBIOtoMyProfile("autoTest- adding to BIO info" + " ");
         profilePage.clickSaveDescription();
         checkExpectedResult("User BIO info has been changed", profilePage.isAccountSetupPagePresent());
-
     }
-    @Test
+
+    @Test   //Тест для изменения имени/UserID
     public void editUserID(){
-        loginPage.loginToIMDb("maksdanish@gmail.com","Odyssey100" );
+        loginPage.logIn();
         homePage.clickOnNickName();
         homePage.clickYourAccount();
         profilePage.clickEditProfile();
@@ -26,12 +27,11 @@ public class EditProfile extends ParentTest {
         profilePage.inputUserIdName("userTestG37");
         profilePage.clickSaveChanges();
         checkExpectedResult(" User ID changed", profilePage.isUserIdPresent());
-
     }
 
-    @Test
+    @Test  // Тест по редактированию персональных данных юзера.
     public void editPersonalDetails(){
-        loginPage.loginToIMDb("maksdanish@gmail.com","Odyssey100" );
+        loginPage.logIn();
         homePage.clickOnNickName();
         homePage.clickYourAccount();
         profilePage.clickYourAccountSetting();
@@ -46,7 +46,5 @@ public class EditProfile extends ParentTest {
         profilePage.selectCountry("Ukraine");
         profilePage.clickSubmitPersonalDetails();
         checkExpectedResult("User personal details is changed",  profilePage.isSuccessfullyMsgPresent());
-
-
     }
 }

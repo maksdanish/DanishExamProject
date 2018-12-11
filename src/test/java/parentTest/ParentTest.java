@@ -19,7 +19,6 @@ public class ParentTest {
     protected PreferencesPage preferencesPage;
 
 
-
     @Before
     public void setUp() {
         File file = new File("./src/drivers/chromedriver.exe");

@@ -12,8 +12,7 @@ public class WatchListPage extends ParentPage {
     WatchListPage watchListPage;
     WebDriverWait wait3;
 
-    @FindBy(xpath = "((//div[@class='vertical-ellipsis'])[1]//*)[1]")
-    private Object MouseClass;
+
 
 
     public WatchListPage(WebDriver webDriver) {
@@ -60,6 +59,9 @@ public class WatchListPage extends ParentPage {
     @FindBy(xpath = "//div[@title='Click to add to watchlist']")
     WebElement addtoWatchListButton;
 
+    @FindBy(xpath = "//div[contains(@title,'Click to remove from watchlist')]")
+    WebElement removeFromWatchListButton;
+
     @FindBy(xpath = "//a[@title='Edit']")
     WebElement editButton;
 
@@ -78,6 +80,12 @@ public class WatchListPage extends ParentPage {
     @FindBy(xpath = "//button[@type='button'][contains(.,'Done')]")
     WebElement buttoneDone;
 
+    @FindBy(xpath = "//a[@class='list-name'][contains(.,'myVideo')]")
+    WebElement myListName;
+
+    @FindBy(xpath = "//a[contains(.,'Iнтeрстеллар')]")
+    WebElement interstellar;
+
 
     public void inputListTitle(String myListName) {
         actionsWithOurElements.enterTextInToElement(listTitleInput, myListName );
@@ -91,6 +99,10 @@ public class WatchListPage extends ParentPage {
         actionsWithOurElements.clickOnElement(createNewList);
     }
 
+    /**
+     * добавление дескрипшина
+     * @param myDescriptionName
+     */
     public void inputListDescription(String myDescriptionName) {
         actionsWithOurElements.enterTextInToElement(createListDesc, myDescriptionName);
     }
@@ -103,6 +115,11 @@ public class WatchListPage extends ParentPage {
         actionsWithOurElements.clickOnElement(buttonCreateNewList);
     }
 
+    /**
+     *
+     * @param myListName
+     * удаляем после себя созданный watchlist.
+     */
     public void deleteWatchListFromList(String myListName)  {
 
         actionsWithOurElements.clickOnElement(clickOnList);
@@ -114,7 +131,7 @@ public class WatchListPage extends ParentPage {
 
     public void clickUserName() {
         actionsWithOurElements.clickOnElement(nick);
-        //wait3.until(ExpectedConditions.elementToBeClickable(nick));
+
     }
 
     public void clickPopularMovies() {
@@ -130,7 +147,7 @@ public class WatchListPage extends ParentPage {
     }
 
     public boolean movieInMyListPresent() {
-        return actionsWithOurElements.isElementDisplayed(By.xpath("//a[contains(.,'Втеча з Шоушенка')]"));
+        return actionsWithOurElements.isElementDisplayed(interstellar);
     }
 
     public void clickEditList() {
@@ -148,25 +165,20 @@ public class WatchListPage extends ParentPage {
         return actionsWithOurElements.isElementDisplayed(buttoneDone);
     }
 
-    public boolean listisNotPresent() {
-        //return actionsWithOurElements.isElementDisplayed(By.xpath(".//*[text()='Showing   of  lists']"));
-        return actionsWithOurElements.isElementDisplayed(showingOfList);
+    public boolean listisNotPresent(String myListName) {
+        return actionsWithOurElements.isElementDisplayed(By.linkText("myVideo"));
 
-        //actionsWithOurElements.textToBePresentInElement(showingOfList, "Showing 0  of 0 lists");
     }
-
-
 
     public boolean listIsCompleteAdded() {
         return actionsWithOurElements.isElementDisplayed(buttoneDone);
     }
 
+    public void clickOnMovieName() {
+        actionsWithOurElements.clickOnElement(interstellar);
+    }
 
-    //""Showing 0  of 0 lists"");
+    public void checkStatus() {
 
-
-
-
-
-
+    }
 }
